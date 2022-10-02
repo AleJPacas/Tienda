@@ -1,0 +1,50 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2 oct 2022, 14:45:11
+    Author     : Sebastian Pacas
+*/
+/* se definen todas las especificacciones de los elemtnos en general*/
+
+.bloque{
+    background-color: purple;/*color de fondo*/
+    width: 150px;/*Ancho de la caja o bloque*/
+    height: 150px;/*alto de la caja*/
+    padding: 15px; /*espacio entre los elmentos (margen)*/
+    border:20px solid tan;
+    /*contorno de la caja (esta caja le añade, 
+    no utiliza el calculo del ancho y alto
+    el conten box es la + de el ancho alto y los contornos)*/
+    box-sizing: border-box; /*tdolo el tamaño de todo se llevara con el borde*/
+    
+}
+.static{
+    
+    position:static; /* los elemntos con posicion static nunca cambiaran de 
+    aunque se les coloque margenes*/
+    border: 3px solid greenyellow;/*determinar solo el borde del texto*/
+    top:400px;
+    left:500px;
+    
+    
+}
+
+.absolute{
+    position:absolute; /* se pisiciona dependiendo del elemtno que esta dentro*/
+    border: 3px solid red;/*determinar solo el borde del texto*/
+    top:400px;
+    left:500px;
+    
+}
+.relative{
+    position:relative; /* significa que no le importa en que etiqueta esta se posicionara si o si
+    en el las cordenadas que nostros le asignemos*/
+    border: 3px brown;/*determinar solo el borde del texto*/
+    top:400px;
+    left:500px;
+    width: 200px;/*Ancho de la caja o bloque*/
+    height: 200px
+    
+}

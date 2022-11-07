@@ -27,7 +27,7 @@ public class PersonaService implements IPersonaService{
 
     @Override
     public Persona getPersonaById(long id) {
-        return perso.findById(id).orElse(null);
+        return perso.findById(id).orElse();
         //solamente se almacena los darotados especificos por ID
     }
 

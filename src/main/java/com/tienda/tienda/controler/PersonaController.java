@@ -22,11 +22,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PersonaController {
     
     @Autowired //Inyeccion de dependencia 
-    private IPersonaService IPES;
+    private IPersonaService personaService;
     
     
     @Autowired//Inyeccion de dependencia 
-    private IPaisService IPAS;
+    private IPaisService paisService;
     
     
     // @getmapping se define el valor y la funcion a realiza, en este caso el /persona es la direccion
@@ -34,7 +34,7 @@ public class PersonaController {
     @GetMapping("/persona")
     public String index(Model model){ //El model lo que hace s sustituir el atml para convertir lo que se llame titulo por table perosna
         //por lo que se llame perosna, sea la lista Persona
-        List<Persona> listaPersona = IPES.getAllPersona(); //se crea la variabe lista
+        List<Persona> listaPersona = personaService.getAllPersona(); //se crea la variabe lista
         model.addAttribute("titulo","tabla persona"); //nombre del texto llamado "titula" sera la tabla persona
         model.addAttribute("personas", listaPersona); //nombre de un texto "persona" sera listaPersona
         return "personas"; //direccion al templates.personas
@@ -42,11 +42,13 @@ public class PersonaController {
     
     @GetMapping("/personaN")
     public String crearPersona(Model model){
-        List<Paises> listaPaises = IPAS.listCountry();
+        List<Paises> listaPaises = paisService.listCountry();
         model.addAttribute("persona",new Persona());
         model.addAttribute("paises",listaPaises);
         return "crear"; //direccion al templates.crear
     }
+    
+    
     
     
     

@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.tienda.tienda.entity;
+import java.util.Arrays;
+import java.util.ArrayList;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,9 +33,14 @@ public class Persona implements Serializable{
     private String telefono;
     private String email;
     
+    private String password;
+    private int active;
+    private String roles = "";
+    private String permissions = "";
+    
     @ManyToOne
     @JoinColumn(name="paises_id")
-    private Paises pais;
+    private Paises paises;
 
     public long getId() {
         return id;
@@ -82,9 +89,50 @@ public class Persona implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
-    
+
+    public Paises getPaises() {
+        return paises;
+    }
+
+    public void setPaises(Paises paises) {
+        this.paises = paises;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public String getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
+
+    public Object getRoleList() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 }

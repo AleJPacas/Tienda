@@ -5,6 +5,7 @@
     <body>
         <header th:replace="plantilla/template::header"></header>
         <!-- se llama la funcion de todos los elemntos de la clase emplates -->
+        
         <h1 th:text="${titulo}"></h1> <!-- "titulo" viene de la linea 38 de |personascontroler|, define donde va todo la tabla  -->
         <h1 th:text="#{cliente.nombre}"></h1>
         <table class="table table-striped">

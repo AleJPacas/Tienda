@@ -11,9 +11,8 @@ import com.tienda.tienda.entity.Persona;
  * Donde se buscan todas
  */
 @Repository
-public interface PersonasRepo extends CrudRepository<Persona,String>{
-    public Object findById(long id);
+public interface PersonasRepo extends CrudRepository<Persona,Long>{
     
-    public void deleteById(long id);
+    Persona findByNombre (String nombre);
     
 }

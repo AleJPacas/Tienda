@@ -10,37 +10,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-/**
- *
- * @author Sebastian Pacas
- */
+@Service
 public class PersonaService implements IPersonaService{
-    @Autowired //solamente añade
-    private PersonasRepo perso; // solo esto porque ya existe la lsitad e datos
+   
+    @Autowired
+    PersonasRepo personasRepo;
     
     @Override
-    public List<Persona> getAllPersona() {
-        return (List<Persona>) perso.findAll();
-        //Muestra todo lo necesario ae personas
-    }
-
-    @Override
-    public Persona getPersonaById(long id) {
-        return perso.findById(id).orElse();
-        //solamente se almacena los darotados especificos por ID
-    }
-
-    @Override
-    public void savePersona(Persona persona) {
-        perso.save(persona);
-        //guardar por persona
-    }
-
-    @Override
-    public void delete(long id) {
-        perso.deleteById(id);
-        //Eliminar por id
+    public List<Persona> getAllPersonas(){
+        return (List<Persona>) personasRepo.findAll();
     }
     
+    @Override
+    public Persona getPersonaById(long id){
+        return personasRepo.findById(id).orElse(null);
+    }
+    
+    @Override
+    public void savePersona (Persona persona){
+        personasRepo.save(persona);
+    }
+    
+    @Override
+    public void delete(long id){
+        personasRepo.deleteById(id);
+    }
+    
+    @Override
+    public Persona findByNombre (String nombre){
+        return personasRepo.findByNombre(nombre);
+    }
 }
